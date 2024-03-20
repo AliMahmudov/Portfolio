@@ -1,0 +1,33 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<h3 class="box-title">Users Page</h3>
+<div class="container-fluid">
+    <a href="/logout" class="btn btn-primary my-4">Logout!</a>
+    <h1>All Users</h1>
+    <table class="table border table-hover my-5">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">USERNAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">PASSWORD</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td><a href="/admina/update/{{ user.id }}" class="btn btn-info">UPDATE</a></td>
+                <td><a href="/admina/delete/{{ user.id }}" class="btn btn-danger">DELETE</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
